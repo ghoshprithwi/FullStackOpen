@@ -18,11 +18,13 @@ const Content = ({ courses }) => {
           return (
             <div>
               <Header course={course.name} />
-              {course.parts.map((part) => {
-                return (
-                  <Part part={part.name} exercises={part.exercises} />
-                )
-              })}
+              {
+                course.parts.map((part) => {
+                  return (
+                    <Part key={part.id} part={part.name} exercises={part.exercises} />
+                  )
+                })
+              }
               <Total parts={courses} />
             </div>
           )
@@ -34,9 +36,20 @@ const Content = ({ courses }) => {
 
 const Total = ({ courses }) => {
   return (
-    <p>
-
-    </p>
+    /*  <p>
+       total of
+       {
+         courses.map((course) => {
+           return (
+             course.parts.reduce((sum, part) => {
+               return sum + part.exercises;
+             }, 0)
+           )
+         })
+       }
+       exercises
+     </p> */
+    <p>total of 0 exercises</p> //unable to fix error 27.3.21
   )
 }
 
